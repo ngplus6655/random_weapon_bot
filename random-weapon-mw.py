@@ -16,7 +16,7 @@ async def on_ready():
 # メッセージ受信時に動作する処理
 
 def saying():
-    return "にゃーーん"
+    return "にゃーーん\nわっほーーい"
 
 @client.event
 async def on_message(message):
