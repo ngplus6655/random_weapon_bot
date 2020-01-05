@@ -1,6 +1,6 @@
 # インストールした discord.py を読み込む
 import discord
-from random_methods import *
+from random_methods import main_rand, sub_rand, park_lethal_tactical, streak_upgrade
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NjYyMDEwMjgzMDQ0MjQxNDIz.XgzvXg.clgqw1RvdAMJEFEvUHpBOKBQjuY'
