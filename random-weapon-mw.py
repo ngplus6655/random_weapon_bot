@@ -218,7 +218,8 @@ async def on_message(message):
         main_name = main[0]
         main_attach = main[1]
         # サブ武器取得
-        sub = sub_rand( sub_category )
+        sub_category = random.choice( sub_l )
+        sub = sub_rand( sub_category  )
         sub_name = sub[0]
         sub_attach = sub[1]
         # パーク、装備取得
@@ -318,11 +319,11 @@ async def on_message(message):
     
     if message.content == '?--help':
         await message.channel.send('こんにちは。\n\
-                                   こちらは、CodMWのマルチプレイヤーにおいてロードアウトをランダムに提案するボットです。\n以下に操作コマンドをすべて置いておきます。\n\
-                                   ?main ==> メイン武器\n?sub ==> サブ武器\n?ar ==> アサルトライフル\n?smg ==> サブマシンガン\n?sg ==> ショットガン\n\
-                                       ?lmg ==> ライトマシンガン\n?mr ==> マークスマンライフル\n?sr => スナイパーライフル\n?hg ==> ハンドガン\n\
-                                           ?lancher ==> ランチャー\n?ks ==> キルストリーク\n?fu ==> フィールドアップグレード \n?loadout ==> ロードアウト一括で取得できます\n\
-                                           それでは(*´ω｀*)')
+こちらは、CodMWのマルチプレイヤーにおいてロードアウトをランダムに提案するボットです。\n以下に操作コマンドをすべて置いておきます。\n\
+?main ==> メイン武器\n?sub ==> サブ武器\n?ar ==> アサルトライフル\n?smg ==> サブマシンガン\n?sg ==> ショットガン\n\
+?lmg ==> ライトマシンガン\n?mr ==> マークスマンライフル\n?sr => スナイパーライフル\n?hg ==> ハンドガン\n\
+?lancher ==> ランチャー\n?ks ==> キルストリーク\n?fu ==> フィールドアップグレード \n?loadout ==> ロードアウト一括で取得できます\n\
+それでは(*´ω｀*)')
         
     
 # Botの起動とDiscordサーバーへの接続
