@@ -233,7 +233,7 @@ async def on_message(message):
         su = streak_upgrade()
         streak = su[0]
         field = su[1]
-        await message.channel.send('{0}\n\{1}\n\n{2}\n{3}\n\n{4}\n{5}\n{6}\n\n{7}\n{8}\n\n{9}\n\n{10}\
+        await message.channel.send('-main-\n{0}\n\{1}\n\n-sub-\n{2}\n{3}\n\n-park-\n{4}\n{5}\n{6}\n\n-装備-\n{7}\n{8}\n\n-キルストリーク-\n{9}\n\n-フィールドアップグレード-\n{10}\
                                    '.format(main_name, main_attach, sub_name, sub_attach, park1, park2, park3, lethal, tac, streak, field)  )
                                    
 # Botの起動とDiscordサーバーへの接続
