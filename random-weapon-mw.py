@@ -233,17 +233,17 @@ async def on_message(message):
         su = streak_upgrade()
         streak = su[0]
         field = su[1]
-        await message.channel.send('main>>>>>>>>>>>>>>\n\n{0}\n\{1}\
-                                   \nsub>>>>>>>>>>>>>>\n\n{2}\n{3}\
+        await message.channel.send('?????????  main ?????????\n{0}\n\{1}\
+                                   \n?????????  sub  ?????????\n{2}\n{3}\
                                    \n'.format(main_name, main_attach, sub_name, sub_attach)  )
                                    
-        await message.channel.send('\npark>>>>>>>>>>>>>>\
+        await message.channel.send('\n?????????  park  ?????????\
                                    \n{0}\n{1}\n{2}\
-                                   \nlethal, tactical>>>>>>>>>>>>>>\
+                                   \n?????????  lethal, tactical  ?????????\
                                    \n{3}\n{4}\
-                                   \nkill_streak>>>>>>>>>>>>>>\
+                                   \n?????????  kill_streak  ?????????\
                                    \n{5}\
-                                   \nfeild_upgrade>>>>>>>>>>>>>>\
+                                   \n?????????  feild_upgrade  ?????????\
                                    \n{6}\
                                    \n'.format(park1, park2, park3, lethal, tac, streak, field) )
 
