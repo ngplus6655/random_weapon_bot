@@ -103,8 +103,9 @@ field_u = [
 
 
 ########methods #######################################################################################
+import random
 def main_rand():
-    main_category = random.choice( l.main )
+    main_category = random.choice( main )
     main_weapon = random.choice( main_category )
     if type( main_weapon ) == str:
         print_main_weapon = main_weapon
@@ -130,7 +131,7 @@ def main_rand():
 
 
 def sub_rand():
-    sub_category = random.choice( l.sub )
+    sub_category = random.choice( sub )
     sub_weapon = random.choice( sub_category )
     if type( sub_weapon ) == str:
         print_sub_weapon = sub_weapon
@@ -156,12 +157,12 @@ def sub_rand():
 
 
 def park_lethal_tactical():
-    park1 = random.choice( l.park1 )
-    park2 = random.choice( l.park2 )
-    park3 = random.choice( l.park3 )
+    park1 = random.choice( park1 )
+    park2 = random.choice( park2 )
+    park3 = random.choice( park3 )
 
-    lethal = random.choice( l.lethal )
-    tactical = random.choice( l.tactical )
+    lethal = random.choice( lethal )
+    tactical = random.choice( tactical )
 
     return park1, park2, park3, lethal, tactical
 
@@ -169,7 +170,7 @@ def park_lethal_tactical():
 
 
 def streak_upgrade():
-    streaks = random.sample( l.kill_s, 3 )
+    streaks = random.sample( kill_s, 3 )
     streak_list = []
     for s in streaks:
         if type(s) == str:
@@ -180,7 +181,7 @@ def streak_upgrade():
 
     #streak = "{0} {1} {2}".format( streak01, streak02, streak03 )
 
-    upgrade= random.choice( l.field_u )
+    upgrade= random.choice( field_u )
 
     return streak, upgrade
 
