@@ -1,6 +1,6 @@
 # インストールした discord.py を読み込む
 import discord
-import random_methods as r
+from random_methods import *
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NjYyMDEwMjgzMDQ0MjQxNDIz.XgzvXg.clgqw1RvdAMJEFEvUHpBOKBQjuY'
@@ -24,20 +24,20 @@ async def on_message(message):
     # 「??rand」と発言したら「にゃーん」が返る処理
     if message.content == '?loadout':
         # メイン武器取得
-        main = r.main_rand()
+        main = main_rand()
         main_name = main[0]
         main_attach = main[1]
         # サブ武器取得
-        sub = r.sub_rand()
+        sub = sub_rand()
         sub_name = sub[0]
         sub_attach = sub[1]
         # パーク、装備取得
-        plt = r.park_lethal_tactical()
+        plt = park_lethal_tactical()
         park = plt[0]
         lethal = plt[1]
         tac = plt[2]
         # ストリーク、フィールドアップグレード
-        su = r.streak_upgrade()
+        su = streak_upgrade()
         streak = su[0]
         field = su[1]
         await message.channel.send(\
