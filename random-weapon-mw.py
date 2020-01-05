@@ -234,23 +234,23 @@ async def on_message(message):
         streak = su[0]
         field = su[1]
         await message.channel.send(\
-            '-------------main----------------------------------------\n\n\
-            {0}\n\
-            {1}\n\n\
-            -------------sub------------------------------------------\n\n\
-            {2}\n\
-            {3}\n\n\
-            -------------park, lethal, tactical-----------------------\n\n\
-            park1: {4}\n\
-            park2: {5}\n\
-            park3: {6}\n\
-            lethal: {7}\n\
-            tactical: {8}\n\n\
-            -------------kill-streak, field-upgrade-------------------\n\n\
-            {9}\n\
-            {10}\n\n\
-            '.format(main_name, main_attach, sub_name, sub_attach, park1,\
-            park2, park3, lethal, tac, streak, field) )
+        '-------------main----------------------------------------\n\n\
+        {0}\n\
+        {1}\n\n\
+        -------------sub------------------------------------------\n\n\
+        {2}\n\
+        {3}\n\n\
+        -------------park, lethal, tactical-----------------------\n\n\
+        park1: {4}\n\
+        park2: {5}\n\
+        park3: {6}\n\
+        lethal: {7}\n\
+        tactical: {8}\n\n\
+        -------------kill-streak, field-upgrade-------------------\n\n\
+        {9}\n\
+        {10}\n\n\
+        '.format(main_name, main_attach, sub_name, sub_attach, park1,\
+        park2, park3, lethal, tac, streak, field) )
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
