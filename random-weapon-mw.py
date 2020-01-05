@@ -233,12 +233,15 @@ async def on_message(message):
         su = streak_upgrade()
         streak = su[0]
         field = su[1]
-        await message.channel.send('-------------main----------------------------------------\n\n{0}\n\
-                                   {1}\n\n-------------sub------------------------------------------\n\n{2}\n\
-                                   {3}\n\n'.format(main_name, main_attach, sub_name, sub_attach)  )
+        await message.channel.send('-------------main----------------------------------------\n\n{0}\n\{1}\n\
+                                   \n-------------sub------------------------------------------\n\n{2}\n\
+                                   {3}\n\n\n'.format(main_name, main_attach, sub_name, sub_attach)  )
                                    
-        await message.channel.send('-------------park, lethal, tactical-----------------------\n\npark1: {0}\npark2: {1}\npark3: {2}\nlethal: {3}\ntactical: {4}\n\n'.format(park1, park2, park3, lethal, tac) )
-        await message.channel.send('-------------kill-streak, field-upgrade-------------------\n\n{9}\n{10}\n\n'.format(streak, field) )
+        await message.channel.send('-------------park, lethal, tactical-----------------------\n\
+                                   \npark1: {0}\npark2: {1}\npark3: {2}\nlethal: {3}\ntactical: {4}\n\
+                                   \n-------------kill-streak, field-upgrade-------------------\n\
+                                   \n{9}\n{10}\n\
+                                   \n'.format(park1, park2, park3, lethal, tac, streak, field) )
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
