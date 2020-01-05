@@ -177,7 +177,7 @@ def streak_upgrade():
             streak_list.append( s )
         else:
             streak_list.append ( random.choice( s ) )
-    streak = " ".join( streak_list )
+    streak = "\n".join( streak_list )
 
     #streak = "{0} {1} {2}".format( streak01, streak02, streak03 )
 
@@ -224,29 +224,33 @@ async def on_message(message):
         sub_attach = sub[1]
         # パーク、装備取得
         plt = park_lethal_tactical()
-        park = plt[0]
-        lethal = plt[1]
-        tac = plt[2]
+        park1 = plt[0]
+        park2 = plt[1]
+        park3 = plt[2]
+        lethal = plt[3]
+        tac = plt[4]
         # ストリーク、フィールドアップグレード
         su = streak_upgrade()
         streak = su[0]
         field = su[1]
         await message.channel.send(\
-            '-------------main----------------------------------------\n\
+            '-------------main----------------------------------------\n\n\
             {0}\n\
-            {1}\n\
-            -------------sub------------------------------------------\n\
+            {1}\n\n\
+            -------------sub------------------------------------------\n\n\
             {2}\n\
-            {3}\n\
-            -------------park, lethal, tactical-----------------------\n\
-            {4}\n\
-            {5}\n\
-            {6}\n\
-            -------------kill-streak, field-upgrade-------------------\n\
-            {7}\n\
-            {8}\n\
-            '.format(main_name, main_attach, sub_name, sub_attach, park,\
-            lethal, tac, streak, field) )
+            {3}\n\n\
+            -------------park, lethal, tactical-----------------------\n\n\
+            park1: {4}\n\
+            park2: {5}\n\
+            park3: {6}\n\
+            lethal: {7}\n\
+            tactical: {8}\n\n\
+            -------------kill-streak, field-upgrade-------------------\n\n\
+            {9}\n\
+            {10}\n\n\
+            '.format(main_name, main_attach, sub_name, sub_attach, park1,\
+            park2, park3, lethal, tac, streak, field) )
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
