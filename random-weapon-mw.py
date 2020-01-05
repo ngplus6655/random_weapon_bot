@@ -48,7 +48,7 @@ h_50gs = [['.50 GS'], ['マズル ', 'フラッシュガード', 'マズルブ�
 
 ##loadout  ###########################################################################
 main_l = [
-[kilo141, fal, m4a1, fr556,oden,m13,fn_scar,ak47,ram_7],
+[kilo141,fal,m4a1,fr556,oden,m13,fn_scar,ak47,ram_7],
 [aug, p90, mp5, uzi ,pp19_bizon, mp7],
 [model, r9_0_shotgun, s725, origin],
 [pkm, sa87, m91, mg34, holger],
@@ -112,13 +112,15 @@ def main_rand( main_category ):
         return print_main_weapon, ""
 
     else:
-        main_weapon_name = main_weapon.pop(0)
-        print_main_weapon = main_weapon_name[0]
+        main_weapon_name = main_weapon[0]
+        del main_weapon[0]
+        print_main_weapon = main_weapon_name
 
         main_attach_category =  random.sample( main_weapon, 5 )
         attachments = []
         for i in range( len( main_attach_category ) ):
-            attach_category = main_attach_category[i].pop(0)
+            attach_category = main_attach_category[i][0]
+            del main_attach_category[i][0]
             main_attach_names = random.choice( main_attach_category[i] )
             attachments.append( "{0}:  {1}".format(attach_category,
                                                          main_attach_names))
@@ -137,7 +139,8 @@ def sub_rand( sub_category ):
         return print_sub_weapon, ""
 
     else:
-        sub_weapon_name = sub_weapon.pop(0)
+        sub_weapon_name = sub_weapon[0]
+        del sub_weapon[0]
         print_sub_weapon = sub_weapon_name[0]
 
         sub_attach_category =  random.sample( sub_weapon, 5 )
@@ -319,11 +322,11 @@ async def on_message(message):
     
     if message.content == '?--help':
         await message.channel.send('こんにちは。\n\
-こちらは、CodMWのマルチプレイヤーにおいてロードアウトをランダムに提案するボットです。\n以下に操作コマンドをすべて置いておきます。\n\
-?main ==> メイン武器\n?sub ==> サブ武器\n?ar ==> アサルトライフル\n?smg ==> サブマシンガン\n?sg ==> ショットガン\n\
-?lmg ==> ライトマシンガン\n?mr ==> マークスマンライフル\n?sr => スナイパーライフル\n?hg ==> ハンドガン\n\
-?lancher ==> ランチャー\n?ks ==> キルストリーク\n?fu ==> フィールドアップグレード \n?loadout ==> ロードアウト一括で取得できます\n\
-それでは(*´ω｀*)')
+こちらは、CodMWのマルチプレイヤーにおいてロードアウトをランダムに提案するボットです。\n以下に操作コマンドをすべて置いておきます。\n' +
+'?main ==> メイン武器\n?sub ==> サブ武器\n?ar ==> アサルトライフル\n?smg ==> サブマシンガン\n?sg ==> ショットガン\n' +
+'?lmg ==> ライトマシンガン\n?mr ==> マークスマンライフル\n?sr => スナイパーライフル\n?hg ==> ハンドガン\n' +
+'?lancher ==> ランチャー\n?ks ==> キルストリーク\n?fu ==> フィールドアップグレード \n?loadout ==> ロードアウト一括で取得できます\n' +
+'それでは(*´ω｀*)')
         
     
 # Botの起動とDiscordサーバーへの接続
