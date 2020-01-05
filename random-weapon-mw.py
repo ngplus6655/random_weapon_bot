@@ -47,7 +47,7 @@ h_50gs = [['.50 GS'], ['マズル ', 'フラッシュガード', 'マズルブ�
 
 
 ##loadout  ###########################################################################
-main = [
+main_l = [
 [kilo141, fal, m4a1, fr556,oden,m13,fn_scar,ak47,ram_7],
 [aug, p90, mp5, uzi ,pp19_bizon, mp7],
 [model, r9_0_shotgun, s725, origin],
@@ -56,35 +56,35 @@ main = [
 [dragunov, hdr, ax_50, "Riot Shield"]
 ]
 
-sub = [
+sub_l = [
 [x16, h1911, h_357, m19, h_50gs],
 ["PILA", "STRELA-P", "JOKR", "RPG-7", "Combat Knife"]
 ]
 
-park1 = [
+park1_l = [
 "ダブルタイム", "E.O.D.", "オーバーキル", "スカベンジャー", "コールドブラッド", "クイックフィックス"
 ]
 
-park2 = [
+park2_l = [
 "リストック", "ハードライン", "ハイアラート", "ゴースト", "キルチェーン", "ポイントマン"
 ]
 
-park3 = [
+park3_l = [
 "チェーンアップ", "アンプ", "シュラプネル", "バトルハーデン", "スポッター", "トラッカー"
 ]
 
 
-lethal = [
+lethal_l = [
 "クレイモア", "フラグ", "モロトフ", "C4", "セムテックス", "投げナイフ", "センサーマイン",
 "テルミット"
 ]
 
-tactical = [
+tactical_l = [
 "スタン", "フラッシュ", "スモーク", "スナップショット", "心拍センサー", "ガス",
 "スティム", "デコイ"
 ]
 
-kill_s = [
+kill_s_l = [
 ["パーソナルレーダー", "シールドターレット"],
 ["カウンターUAV", "UAV", "ケアパッケージ"],
 ["クラスターストライク", "巡航ミサイル", "エアストライク"],
@@ -96,7 +96,7 @@ kill_s = [
 "ジャガーノート"
 ]
 
-field_u = [
+field_u_l = [
 "ミューニションボックス", "リーコンドローン", "デッドサイレンス", "ストッピングパワー弾",
 "トロフィーシステム", "デプロイカバー", "戦術マーカー", "EMPドローン", "ウェポンドロップ"
 ]
@@ -105,7 +105,7 @@ field_u = [
 ########methods #######################################################################################
 import random
 def main_rand():
-    main_category = random.choice( main )
+    main_category = random.choice( main_l )
     main_weapon = random.choice( main_category )
     if type( main_weapon ) == str:
         print_main_weapon = main_weapon
@@ -131,7 +131,7 @@ def main_rand():
 
 
 def sub_rand():
-    sub_category = random.choice( sub )
+    sub_category = random.choice( sub_l )
     sub_weapon = random.choice( sub_category )
     if type( sub_weapon ) == str:
         print_sub_weapon = sub_weapon
@@ -157,12 +157,12 @@ def sub_rand():
 
 
 def park_lethal_tactical():
-    park1 = random.choice( park1 )
-    park2 = random.choice( park2 )
-    park3 = random.choice( park3 )
+    park1 = random.choice( park1_l )
+    park2 = random.choice( park2_l )
+    park3 = random.choice( park3_l )
 
-    lethal = random.choice( lethal )
-    tactical = random.choice( tactical )
+    lethal = random.choice( lethal_l )
+    tactical = random.choice( tactical_l )
 
     return park1, park2, park3, lethal, tactical
 
@@ -170,7 +170,7 @@ def park_lethal_tactical():
 
 
 def streak_upgrade():
-    streaks = random.sample( kill_s, 3 )
+    streaks = random.sample( kill_s_l, 3 )
     streak_list = []
     for s in streaks:
         if type(s) == str:
@@ -181,7 +181,7 @@ def streak_upgrade():
 
     #streak = "{0} {1} {2}".format( streak01, streak02, streak03 )
 
-    upgrade= random.choice( field_u )
+    upgrade= random.choice( field_u_l )
 
     return streak, upgrade
 
