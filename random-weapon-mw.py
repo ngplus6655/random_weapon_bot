@@ -286,14 +286,14 @@ async def on_message(message):
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
         
     if message.content == '?mr':
-        main_category = main_l[0]
+        main_category = main_l[4]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
         
     if message.content == '?sr':
-        main_category = main_l[0][0:-1]
+        main_category = main_l[5][0:-1]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
