@@ -104,7 +104,6 @@ def main_rand( main_category ):
 
     else:
         main_weapon_name = main_weapon['name']
-        del main_weapon['name']
         
         main_weapon_attach_list = []
         for key in main_weapon.keys():
@@ -136,11 +135,11 @@ def sub_rand( sub_category ):
 
     else:
         sub_weapon_name = sub_weapon['name']
-        del sub_weapon['name']
         
         sub_weapon_attach_list = []
         for key in sub_weapon.keys():
-            sub_weapon_attach_list.append( key )
+            if key == 'name':
+                sub_weapon_attach_list.append( key )
 
         sub_attach_category =  random.sample( sub_weapon_attach_list, 5 )
         attachments = []
