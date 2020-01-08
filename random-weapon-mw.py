@@ -108,6 +108,8 @@ def main_rand( main_category ):
         
         main_weapon_attach_list = []
         for key in main_weapon.keys():
+            if key == 'name':
+                continue
             main_weapon_attach_list.append( key )
         
         main_attach_category =  random.sample( main_weapon_attach_list, 5 )
