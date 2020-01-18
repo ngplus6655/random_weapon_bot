@@ -139,9 +139,10 @@ def sub_rand( sub_category ):
         sub_weapon_attach_list = []
         for key in sub_weapon.keys():
             if key == 'name':
-                sub_weapon_attach_list.append( key )
+                continue
+            sub_weapon_attach_list.append( key )
 
-        sub_attach_category =  random.sample( sub_weapon_attach_list, 5 )
+        sub_attach_category = random.sample( sub_weapon_attach_list, 5 )
         attachments = []
         for category in sub_attach_category:
             attach_category = category
@@ -235,14 +236,14 @@ async def on_message(message):
         if park1 == "オーバーキル":
             sub_category = random.choice( main_l )
             sub = main_rand( main_category )
-            sub_name = main[0]
-            sub_attach = main[1]
+            sub_name = sub[0]
+            sub_attach = sub[1]
             if sub_name == main_name:
                 while sub_name != main_name:
                     sub_category = random.choice( main_l )
                     sub = main_rand( main_category )
-                    sub_name = main[0]
-                    sub_attach = main[1]
+                    sub_name = sub[0]
+                    sub_attach = sub[1]
         else:
             sub_category = random.choice( sub_l )
             sub = sub_rand( sub_category  )
