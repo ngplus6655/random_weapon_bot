@@ -96,7 +96,7 @@ field_u_l = [
 import random
 def main_rand( main_category ):
     main_weapon = random.choice( main_category )
-    
+
     if type( main_weapon ) == str:
         print_main_weapon = main_weapon
 
@@ -104,18 +104,18 @@ def main_rand( main_category ):
 
     else:
         main_weapon_name = main_weapon['name']
-        
+
         main_weapon_attach_list = []
         for key in main_weapon.keys():
             if key == 'name':
                 continue
             main_weapon_attach_list.append( key )
-        
+
         main_attach_category =  random.sample( main_weapon_attach_list, 5 )
         attachments = []
         for category in main_attach_category:
             attach_category = category
-            
+
             main_attach_names = random.choice( main_weapon[category] )
             attachments.append( "{0}:  {1}".format(attach_category,
                                                          main_attach_names))
@@ -127,7 +127,7 @@ def main_rand( main_category ):
 
 def sub_rand( sub_category ):
     sub_weapon = random.choice( sub_category )
-    
+
     if type( sub_weapon ) == str:
         print_sub_weapon = sub_weapon
 
@@ -135,7 +135,7 @@ def sub_rand( sub_category ):
 
     else:
         sub_weapon_name = sub_weapon['name']
-        
+
         sub_weapon_attach_list = []
         for key in sub_weapon.keys():
             if key == 'name':
@@ -145,7 +145,7 @@ def sub_rand( sub_category ):
         attachments = []
         for category in sub_attach_category:
             attach_category = category
-            
+
             sub_attach_names = random.choice( sub_weapon[category] )
             attachments.append( "{0}:  {1}".format(attach_category,
                                                         sub_attach_names))
@@ -224,11 +224,6 @@ async def on_message(message):
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
-        # サブ武器取得
-        sub_category = random.choice( sub_l )
-        sub = sub_rand( sub_category  )
-        sub_name = sub[0]
-        sub_attach = sub[1]
         # パーク、装備取得
         plt = park_lethal_tactical()
         park1 = plt[0]
@@ -236,6 +231,23 @@ async def on_message(message):
         park3 = plt[2]
         lethal = plt[3]
         tac = plt[4]
+        # サブ武器取得
+        if park1 == "オーバーキル":
+            sub_category = random.choice( main_l )
+            sub = main_rand( main_category )
+            sub_name = main[0]
+            sub_attach = main[1]
+            if sub_name == main_name:
+                while sub_name != main_name:
+                    sub_category = random.choice( main_l )
+                    sub = main_rand( main_category )
+                    sub_name = main[0]
+                    sub_attach = main[1]
+        else:
+            sub_category = random.choice( sub_l )
+            sub = sub_rand( sub_category  )
+            sub_name = sub[0]
+            sub_attach = sub[1]
         # ストリーク、フィールドアップグレード
         su = streak_upgrade()
         streak = su[0]
@@ -249,7 +261,7 @@ async def on_message(message):
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?sub':
         # サブ武器取得
         sub_category = random.choice( sub_l )
@@ -257,80 +269,80 @@ async def on_message(message):
         sub_name = sub[0]
         sub_attach = sub[1]
         await message.channel.send('{0}\n\{1}'.format(sub_name, sub_attach))
-        
+
     if message.content == '?ar':
         main_category = main_l[0]
         main = main_rand( main_category  )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?smg':
         main_category = main_l[1]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?sg':
         main_category = main_l[2]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?lmg':
         main_category = main_l[3]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?mr':
         main_category = main_l[4]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?sr':
         main_category = main_l[5][0:-1]
         main = main_rand( main_category )
         main_name = main[0]
         main_attach = main[1]
         await message.channel.send('{0}\n\{1}'.format(main_name, main_attach))
-        
+
     if message.content == '?hg':
         sub_category = sub_l[0]
         sub = sub_rand( sub_category  )
         sub_name = sub[0]
         sub_attach = sub[1]
         await message.channel.send('{0}\n\{1}'.format(sub_name, sub_attach))
-        
+
     if message.content == '?launcher':
         sub_category = sub_l[1][0:-1]
         sub = sub_rand( sub_category )
         sub_name = sub[0]
         sub_attach = sub[1]
         await message.channel.send('{0}\n\{1}'.format(sub_name, sub_attach))
-        
+
     if message.content == '?ks':
         su = streak_upgrade()
         streak = su[0]
         await message.channel.send('{0}'.format(streak))
-        
+
     if message.content == '?fu':
         su = streak_upgrade()
         fu = su[1]
         await message.channel.send('{0}'.format(fu))
-    
+
     if message.content == '?--help':
         await message.channel.send('こんにちは。\nこちらは、CodMWのマルチプレイヤーにおいてロードアウトをランダムに提案するボットです。\n以下に操作コマンドをすべて置いておきます。\n' +
 '?main ==> メイン武器\n?sub ==> サブ武器\n?ar ==> アサルトライフル\n?smg ==> サブマシンガン\n?sg ==> ショットガン\n' +
 '?lmg ==> ライトマシンガン\n?mr ==> マークスマンライフル\n?sr => スナイパーライフル\n?hg ==> ハンドガン\n' +
 '?lancher ==> ランチャー\n?ks ==> キルストリーク\n?fu ==> フィールドアップグレード \n?loadout ==> ロードアウト一括で取得できます\n' +
 'それでは(*´ω｀*)')
-        
-    
+
+
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
