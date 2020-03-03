@@ -335,7 +335,7 @@ async def on_message(message):
         fu = su[1]
         await message.channel.send('{0}'.format(fu))
 
-    if message.content == '?--help':
+    if message.content == '??help':
         await message.channel.send('こんにちは。\nこちらは、CodMWのマルチプレイヤーにおいてロードアウトをランダムに提案するボットです。\n以下に操作コマンドをすべて置いておきます。\n' +
 '?main ==> メイン武器\n?sub ==> サブ武器\n?ar ==> アサルトライフル\n?smg ==> サブマシンガン\n?sg ==> ショットガン\n' +
 '?lmg ==> ライトマシンガン\n?mr ==> マークスマンライフル\n?sr => スナイパーライフル\n?hg ==> ハンドガン\n' +
