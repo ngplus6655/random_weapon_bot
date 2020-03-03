@@ -196,7 +196,7 @@ def streak_upgrade():
 import discord
 
 # 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'NjYyMDEwMjgzMDQ0MjQxNDIz.XgzvXg.clgqw1RvdAMJEFEvUHpBOKBQjuY'
+TOKEN = 'NjYyMDEwMjgzMDQ0MjQxNDIz.Xl3nJQ.gtkOpim_UJst-VZmaxGHia76AQo'
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -206,6 +206,7 @@ client = discord.Client()
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
+    
 
 # メッセージ受信時に動作する処理
 # 武器データ読み込み
@@ -250,6 +251,8 @@ async def on_message(message):
         field = su[1]
         await message.channel.send('?? main ??\n{0}\n\{1}\n\n?? sub ??\n{2}\n{3}\n\n?? park ??\n{4}\n{5}\n{6}\n\n?? lethal,Tactical ??\n{7}\n{8}\n\n?? KillStreak ??\n{9}\n\n?? FieldUpgrade ??\n{10}\
                                    '.format(main_name, main_attach, sub_name, sub_attach, park1, park2, park3, lethal, tac, streak, field)  )
+    
+    
     if message.content == '?main':
         # メイン武器取得
         main_category = random.choice( main_l )
