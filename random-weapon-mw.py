@@ -194,9 +194,10 @@ def streak_upgrade():
 
 # インストールした discord.py を読み込む
 import discord
+import os
 
-# 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'NjYyMDEwMjgzMDQ0MjQxNDIz.Xl3nJQ.gtkOpim_UJst-VZmaxGHia76AQo'
+# トークン
+TOKEN = os.environ['DISCODE_TOKEN']
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -344,4 +345,5 @@ async def on_message(message):
 
 
 # Botの起動とDiscordサーバーへの接続
+print(TOKEN)
 client.run(TOKEN)
